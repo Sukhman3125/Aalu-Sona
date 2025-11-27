@@ -48,8 +48,7 @@ public class AmmoLogic : Singleton<AmmoLogic>
             var instansiatedAmmo = Instantiate(GameManager.Instance.prefabs.InstansiatedAmmoPrefab,
                 GameManager.Instance.instansiatedAmmoParent);
             ammoList.Add(instansiatedAmmo);
-            Vector3 spawnPos = new Vector3(randPos.x, instansiatedAmmo.transform.position.y, randPos.y);
-            instansiatedAmmo.transform.position = spawnPos;
+            instansiatedAmmo.transform.position = randPos;
             float randTime = Random.Range(GameManager.Instance.ammo_minSpawnTime, GameManager.Instance.ammo_maxSpawnTime);
             yield return new WaitForSeconds(randTime);
         }
@@ -62,7 +61,7 @@ public class AmmoLogic : Singleton<AmmoLogic>
     }
     #endregion
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<PeriodicMotion>())
         {
@@ -73,6 +72,7 @@ public class AmmoLogic : Singleton<AmmoLogic>
             }
         }
     }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

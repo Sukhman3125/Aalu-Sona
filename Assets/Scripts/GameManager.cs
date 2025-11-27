@@ -21,4 +21,8 @@ public class GameManager : Singleton<GameManager>
     public float ammo_despawnDistance = 10f;
     public int ammo_maxInstansiatedAmmo = 10;
 
+    [Space]
+    public float ammo_maxScale = 1.4f;
+    public float ammo_cycleTime = 1f;
+
 }
